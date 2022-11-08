@@ -1,0 +1,65 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <title>Sonic</title>
+</head>
+<body>
+    <script>
+    let sonic = confirm('Ты любишь соника?')
+    if (sonic) {
+        alert('Тогда этот сайт именно для тебя!')
+    }
+    else {
+        alert('Тогда советую сначаала поиграть в Соника потом заходить на этот сайт')
+    }
+    </script>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img class="logo__img" src="{% static 'main/img/Sonic_logo.png' %}" alt=""></a>
+        </div>
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li class="header__item"><a href="#" class="header__link">О нас</a></li>
+                    <li class="header__item"><a href="{% url 'full_text' %}" class="header__link">Посмотреть на полный текст</a></li>
+                    <li class="header__item" id="language__menu" ><button class="header__btn">Сменить язык</button>
+                        <ul>
+                            <li class="language__item"><button class="language__link" id="lang_1">Русский</button></li>
+                            <li class="language__item"><button class="language__link" id="lang_2">Английский</button></li>
+                            <li class="language__item"><button class="language__link" id="lang_3">Испанский</button></li>
+                        </ul>
+                    </li>
+                    <li class="header__item"><a href="#" class="header__link">Мини игра</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Соник История успеха</h1>
+    <form action="srch" method="get" class="form">
+        <input type="text" name="search" placeholder="Поиск" class="input">
+        <button class="btn">Найти</button>
+    </form>
+        <script>
+            let lang_1 = document.getElementById('lang_1');
+            let lang_2 = document.getElementById('lang_2');
+            let lang_3 = document.getElementById('lang_3');
+            lang_1.onclick = function() {
+                lang_1.value = '1'
+            }
+            lang_2.onclick = function() {
+                lang_2.value = '2'
+            }
+            lang_3.onclick = function() {
+                lang_3.value = '3'
+            }
+            if (lang_1.innerText == null)
+        </script>
+        </script>
+</body>
+</html>

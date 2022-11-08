@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <title>Sonic</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img class="logo__img" src="{% static 'main/img/Sonic_logo.png' %}" alt=""></a>
+    </div>
+    <nav class="header__menu">
+        <ul class="header__list">
+            <li class="header__item"><a href="#" class="header__link">О нас</a></li>
+            <li class="header__item"><a href="{% url 'full_text' %}" class="header__link">Посмотреть на полный текст</a></li>
+            <li class="header__item" id="language__menu" ><button class="header__btn">Сменить язык</button>
+                <ul>
+                    <li class="language__item"><button class="language__link">Русский</button></li>
+                    <li class="language__item"><button class="language__link">Английский</button></li>
+                    <li class="language__item"><button class="language__link">Испанский</button></li>
+                </ul>
+            </li>
+            <li class="header__item"><a href="#" class="header__link">Мини игра</a></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+<h1>Соник История успеха</h1>
+
+<form action=" " method="get" class="form">
+    <input type="text" name="search" placeholder="Поиск" class="input">
+    <button class="btn">Найти</button>
+</form>
+<div class="result">
+    {% if list|length == 0 %}
+    <h2 class="suptitle">Найдено 0 результатов.</h2>
+{% else %}
+    {% for i in list %}
+        <p class="text">{{ i }}.</p>
+    {% endfor %}
+{% endif %}
+</div>
+<script src="{% static 'main/js/script.js' %}"></script>
+</body>
+</html>
